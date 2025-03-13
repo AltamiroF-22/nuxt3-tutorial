@@ -1,28 +1,26 @@
 <template>
   <div class="container">
-    <div v-if="images" class="gallery">
-      <div v-for="image in images" :key="image.id" class="card">
+    <div v-if="favorites" class="gallery">
+      <div v-for="image in favorites" :key="image.id" class="card">
         <img :src="image.image" :alt="image.description" class="card-img" />
         <div class="card-body">
           <h2 class="card-title">{{ image.description }}</h2>
         </div>
         <div class="">
-          <button @click="removeFavorite(image.id)">
+          <button @click="ImageVideoStore.deleteFavorite(image.id)">
             remover dos favoritos
           </button>
         </div>
       </div>
     </div>
-    <p v-if="!images.length">Sem favoritos ate o momento</p>
+    <p v-if="!favorites.length">Sem favoritos ate o momento</p>
   </div>
 </template>
 
 <script setup lang="ts">
-const images = useFavorites();
-
-const removeFavorite = (id: number) => {
-  images.value = images.value.filter((image) => image.id !== id);
-};
+// const images = useFavorites();
+const ImageVideoStore = useVideoStore();
+const { favorites } = storeToRefs(ImageVideoStore);
 </script>
 
 <style scoped>
