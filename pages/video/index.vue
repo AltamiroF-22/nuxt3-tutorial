@@ -11,12 +11,12 @@
         <div class="card-body">
           <h2 class="card-title">{{ image.description }}</h2>
         </div>
+        <p v-data-horario="'dd/mm/yyyy'">{{ image.datePosted }}</p>
         <div class="">
           <button @click="addFavorite(image)">Adicionar as favoritos</button>
         </div>
       </div>
     </div>
-    
     <p v-else class="loading">Carregando imagens..</p>
   </div>
 </template>
@@ -24,6 +24,12 @@
 <script setup lang="ts">
 import type { ImageItem } from "@/interfaces/video";
 import { ref } from "vue";
+
+const { $toast } = useNuxtApp();
+
+onMounted(() => {
+  $toast.success("Toast adicionando com sucesso!");
+});
 
 const images = ref<ImageItem[] | null>(null);
 
@@ -34,10 +40,6 @@ const { data } = await useFetch<ImageItem[]>("/data/images.json");
 
 // Atualiza a ref com os dados
 images.value = data.value;
-
-const convertDateBrazil = (currentDate: string) => {
-  return new Date(currentDate).toLocaleDateString("pt-BR");
-};
 </script>
 
 <style scoped>
@@ -69,6 +71,11 @@ h1 {
 .favorites-link:hover {
   text-decoration: underline;
 }
+button {
+  padding: 7px;
+  cursor: pointer;
+  width: 100%;
+}
 
 /* Galeria */
 .gallery {
@@ -84,10 +91,6 @@ h1 {
   overflow: hidden;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
-}
-
-.card:hover {
-  transform: scale(1.05);
 }
 
 /* Imagem */

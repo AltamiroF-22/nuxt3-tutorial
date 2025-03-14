@@ -3,4 +3,5 @@ export interface ImageItem {
   description: string;
   url: string;
   image: string;
+  datePosted: string;
 }

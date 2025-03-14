@@ -7,7 +7,7 @@
           <h2 class="card-title">{{ image.description }}</h2>
         </div>
         <div class="">
-          <button @click="ImageVideoStore.deleteFavorite(image.id)">
+          <button @click="handleRemoveFavorite(image.id)">
             remover dos favoritos
           </button>
         </div>
@@ -20,7 +20,19 @@
 <script setup lang="ts">
 // const images = useFavorites();
 const ImageVideoStore = useVideoStore();
+const { $showErrorToast, $toast } = useNuxtApp();
+
 const { favorites } = storeToRefs(ImageVideoStore);
+
+// const handleRemoveFavorite = (id: number) => {
+//   ImageVideoStore.deleteFavorite(id);
+//   $showErrorToast("Erro ao desfavoritar!");
+// };
+
+const handleRemoveFavorite = (id: number) => {
+  ImageVideoStore.deleteFavorite(id);
+  $toast.success("desfavoritado com succeso!");
+};
 </script>
 
 <style scoped>
