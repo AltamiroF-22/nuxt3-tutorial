@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <h1>Images / Videos (teste kkkkkk 😂)</h1>
+    <h1>{{ $t("title") }}</h1>
+    <div class=""></div>
     <NuxtLink to="/video/favorites" class="favorites-link">
-      Ver Favoritos
-      
+      {{ $t("titleFavorite") }}
     </NuxtLink>
     <div v-if="images" class="gallery">
       <div v-for="image in images" :key="image.id" class="card">
