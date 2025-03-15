@@ -3,8 +3,8 @@
     <h1>Images / Videos (teste kkkkkk 😂)</h1>
     <NuxtLink to="/video/favorites" class="favorites-link">
       Ver Favoritos
+      
     </NuxtLink>
-
     <div v-if="images" class="gallery">
       <div v-for="image in images" :key="image.id" class="card">
         <img :src="image.image" :alt="image.description" class="card-img" />
