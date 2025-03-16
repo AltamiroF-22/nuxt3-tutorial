@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "pinia-plugin-persistedstate/nuxt",
     "@nuxtjs/i18n", // Módulo de tradução
+    "@nuxt/ui", 
   ],
   pinia: {
     storesDirs: ["./stores/**"],
