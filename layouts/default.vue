@@ -32,7 +32,7 @@
       </div>
       <div
         :class="{ hidden: !isOpen, block: isOpen }"
-        class="w-full block flex-grow lg:flex lg:items-center lg:w-auto "
+        class="w-full block flex-grow lg:flex lg:items-center lg:w-auto"
       >
         <div class="text-sm lg:flex-grow">
           <!-- <NuxtLink
@@ -62,7 +62,7 @@
               <div class="w-8 h-8" />
             </template>
           </ClientOnly>
-          <select v-model="locale" class="ml-8" >
+          <select v-model="locale" class="ml-8">
             <option value="pt">Português</option>
             <option value="en">English</option>
             <option value="fr">Français</option>

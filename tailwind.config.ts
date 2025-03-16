@@ -1,7 +1,11 @@
 import type { Config } from "tailwindcss";
 
-const config: Partial<Config> = {
-  content: ["docs/content/**/*.md"],
+const config: Config = {
+  content: ["./app.vue", "./pages/**/*.vue", "./components/**/*.vue"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
 };
 
 export default config;
